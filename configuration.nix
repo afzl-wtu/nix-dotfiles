@@ -23,7 +23,7 @@
   users.users.hrm = {
     isNormalUser = true;
     shell = pkgs.fish;
-    hashedPasswordFile = "/home/hrm/nix-dotfiles/secrets/hrm-password";
+    hashedPasswordFile = "/etc/nixos/secrets/hrm-password";
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
