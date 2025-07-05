@@ -19,7 +19,8 @@
 
   users.mutableUsers = false;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;  
+  nixpkgs.config.allowUnfree = true;
+  users.users.root.hashedPasswordFile = "/etc/nixos/secrets/root-password";
   users.users.hrm = {
     isNormalUser = true;
     shell = pkgs.fish;
@@ -33,6 +34,8 @@
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
       fastfetch --config examples/13
+      zoxide init fish | source
+      fzf --fish | source
     '';
   shellAliases = {
     "ls" = "eza --icons";
@@ -67,6 +70,8 @@
     meslo-lgs-nf
     alacritty
     fishPlugins.tide
+    fzf
+    zoxide
   ];
 
   services.openssh.enable = true;

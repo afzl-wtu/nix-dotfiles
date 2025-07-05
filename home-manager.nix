@@ -21,19 +21,21 @@ in
           go
 	];
       };
-      programs.vscode = {
-        enable = true;
-        profiles.default.extensions = with pkgs.vscode-extensions; [
-    	  golang.go
-          pkief.material-icon-theme
-          dart-code.flutter
-          # hzgood.dart-data-class-generator
-  	];
-      };
-      programs.git = {
-        enable = true;
-        userName = "Afzal Tahir Wattu";
-        userEmail = "afzl.wtu@hotmail.com";
+      programs = {
+        vscode = {
+          enable = true;
+          profiles.default.extensions = with pkgs.vscode-extensions; [
+    	    golang.go
+            pkief.material-icon-theme
+            dart-code.flutter
+            # hzgood.dart-data-class-generator
+  	  ];
+        };
+        git = {
+          enable = true;
+          userName = "Afzal Tahir Wattu";
+          userEmail = "afzl.wtu@hotmail.com";
+        };
       };
     };
   };
