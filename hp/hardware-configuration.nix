@@ -29,6 +29,7 @@
     {
       device = "/dev/disk/by-uuid/ad115b46-8ee3-4119-bf43-4cc0f0053605";
       fsType = "btrfs";
+      neededForBoot = true;
       options = [ "subvol=nix/@persistent" "noatime" "compress-force=zstd:1" "ssd" "discard=async" "space_cache=v2" ];
     };
 
