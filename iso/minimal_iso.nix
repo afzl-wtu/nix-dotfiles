@@ -6,7 +6,6 @@
     disko
     git
     alacritty
-    cgdisk
     fzf
     zoxide
     fastfetch
@@ -20,6 +19,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+  networking.wireless.enable = false;
   networking.networkmanager.enable = true;
   programs.hyprland.enable = true;
   programs.firefox.enable = true;

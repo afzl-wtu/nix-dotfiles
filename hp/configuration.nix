@@ -7,6 +7,7 @@
       ./home-manager.nix
       ../de_and_graphics/gnome.nix
       ../de_and_graphics/intel_gpu.nix
+      ./virtio.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
