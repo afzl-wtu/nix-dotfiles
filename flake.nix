@@ -8,16 +8,19 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     # Please replace my-nixos with your hostname
-    nixosConfigurations.macbook-m4 = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./configuration.nix
-	./intel_gpu.nix
-        ./home-manager.nix
-        ./de/gnome.nix
-      ];
+    nixosConfigurations = {
+      macbook-m4 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hp/configuration.nix
+        ];
+      };
+      iso = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./iso/minimal_iso.nix
+        ];
+      };
     };
   };
 }

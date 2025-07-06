@@ -16,6 +16,7 @@
   pkgs.gnome-music
   ];
   environment.systemPackages = with pkgs; [
+    gnome-boxes
     gnomeExtensions.tophat
     gnomeExtensions.app-icons-taskbar
     gnomeExtensions.blur-my-shell

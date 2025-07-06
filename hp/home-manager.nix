@@ -25,9 +25,10 @@ in
         vscode = {
           enable = true;
           profiles.default.extensions = with pkgs.vscode-extensions; [
-    	    golang.go
+    	      golang.go
             pkief.material-icon-theme
             dart-code.flutter
+            jnoortheen.nix-ide
             # hzgood.dart-data-class-generator
   	  ];
         };
