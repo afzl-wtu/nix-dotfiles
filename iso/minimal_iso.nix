@@ -5,7 +5,6 @@
   environment.systemPackages = with pkgs; [
     disko
     git
-    alacritty
     fzf
     zoxide
     fastfetch
@@ -21,12 +20,15 @@
 
   networking.wireless.enable = false;
   networking.networkmanager.enable = true;
-  programs.hyprland.enable = true;
+  
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = true;
   programs.firefox.enable = true;
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-      tide configure --auto --style=Rainbow --prompt_colors='True color' --show_time='24-hour format' --rainbow_prompt_separators=Round --powerline_prompt_heads=Slanted --powerline_prompt_tails=Slanted --powerline_prompt_style='Two lines, character and frame' --prompt_connection=Dotted --powerline_right_prompt_frame=No --prompt_connection_andor_frame_color=Darkest --prompt_spacing=Sparse --icons='Many icons' --transient=No
+      tide configure --auto --style=Lean --prompt_colors='True color' --show_time=No --lean_prompt_height='Two lines' --prompt_connection=Dotted --prompt_connection_andor_frame_color=Darkest --prompt_spacing=Sparse --icons='Few icons' --transient=No
       set fish_greeting # Disable greeting
       fastfetch --config examples/13
       zoxide init fish | source

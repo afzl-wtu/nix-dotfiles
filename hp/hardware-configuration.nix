@@ -14,11 +14,22 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
+  fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "defaults" "size=256M" "mode=755" ];
+  };
+#  fileSystems."/" =
+#    {
+#      device = "/dev/disk/by-uuid/ad115b46-8ee3-4119-bf43-4cc0f0053605";
+#      fsType = "btrfs";
+#      options = [ "subvol=nix/@" "noatime" "compress-force=zstd:1" "ssd" "discard=async" "space_cache=v2" ];
+#    };
+  fileSystems."/persistent" =
     {
       device = "/dev/disk/by-uuid/ad115b46-8ee3-4119-bf43-4cc0f0053605";
       fsType = "btrfs";
-      options = [ "subvol=nix/@" "noatime" "compress-force=zstd:1" "ssd" "discard=async" "space_cache=v2" ];
+      options = [ "subvol=nix/@persistent" "noatime" "compress-force=zstd:1" "ssd" "discard=async" "space_cache=v2" ];
     };
 
   fileSystems."/boot" =

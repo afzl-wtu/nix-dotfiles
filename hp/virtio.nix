@@ -1,5 +1,5 @@
-{}:{
-  programs.virt-manager.enable = true;
+{config, lib, pkgs, ...}:{
+  # programs.virt-manager.enable = true;
 
   users.groups.libvirtd.members = ["hrm"];
 
