@@ -26,12 +26,11 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-  # users.users.root.hashedPasswordFile = "/nix/secrets/root-password";
   users.users.root.initialHashedPassword = "$6$2gYZKjvECwT4uR29$kZFDI1ivnpOLlFiI1HBh6UbilEF/fkY7gQjV1fEESXLpvvDka7uKNSAYwpuOfbRX5bA0mX3mQnoKETTs9iO4l0";
   users.users.hrm = {
     isNormalUser = true;
     shell = pkgs.fish;
-    hashedPasswordFile = "/nix/secrets/hrm-password";
+    hashedPasswordFile = "/persist/secrets/hrm-password";
     extraGroups = [ "wheel" ];
   };
 
@@ -79,6 +78,7 @@
     fishPlugins.tide
     fzf
     zoxide
+    nethogs
   ];
 
   services.openssh.enable = true;
@@ -87,7 +87,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
 
   system.stateVersion = "25.05"; # Did you read the comment?
 }
