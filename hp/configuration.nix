@@ -4,11 +4,9 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./home-manager.nix
       ../de_and_graphics/gnome.nix
       ../de_and_graphics/intel_gpu.nix
       ./virtio.nix
-      ./impermanence.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -30,7 +28,7 @@
   users.users.hrm = {
     isNormalUser = true;
     shell = pkgs.fish;
-    hashedPasswordFile = "/persist/secrets/hrm-password";
+    hashedPasswordFile = "/persistent/secrets/hrm-password";
     extraGroups = [ "wheel" ];
   };
 
