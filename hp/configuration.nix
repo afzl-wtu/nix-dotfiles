@@ -57,8 +57,13 @@
     HandleLidSwitchExternalPower=ignore
   '';
   
+  nixpkgs.config.permittedInsecurePackages = [
+    "ventoy-1.1.05"
+      ];
   environment.systemPackages = with pkgs; [
     wget
+    usbutils
+    ventoy
     brave
     jellyfin
     jellyfin-web
@@ -77,6 +82,8 @@
     fzf
     zoxide
     nethogs
+    vlc
+    mpv
   ];
 
   services.openssh.enable = true;
